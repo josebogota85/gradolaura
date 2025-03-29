@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación al Grado de Laura Carolina</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Dancing+Script:wght@600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #5d5d5d;
+            line-height: 1.6;
+            text-align: center;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .invitation-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom right, #ffffff, #f8f8ff);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 
+                0 15px 30px rgba(0, 0, 0, 0.1), 
+                0 0 0 1px rgba(176, 192, 237, 0.2),
+                0 5px 15px rgba(176, 192, 237, 0.15) inset;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Elementos decorativos flotantes */
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .decoration {
+            position: absolute;
+            opacity: 0.7;
+        }
+        
+        .diploma {
+            top: 10%;
+            right: 5%;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #f5d37a 30%, transparent 70%);
+            border-radius: 50%;
+            animation: float 7s ease-in-out infinite;
+        }
+        
+        .tassel {
+            bottom: 15%;
+            left: 8%;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #c7a1f5 30%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        
+        .book {
+            top: 70%;
+            right: 10%;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle, #98d6ea 30%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        
+        .cap {
+            top: 30%;
+            left: 7%;
+            width: 35px;
+            height: 35px;
+            background: radial-gradient(circle, #ffb5c8 30%, transparent 70%);
+            border-radius: 50%;
+            animation: float 7.5s ease-in-out infinite;
+            animation-delay: 1.5s;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            border-radius: 2px;
+            animation: confettiFall 5s ease-in-out infinite;
+        }
+        
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(650px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        .inner-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-decoration {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .header-line {
+            width: 60%;
+            height: 2px;
+            margin: 0 auto;
+            background: linear-gradient(to right, transparent, #c7a1f5, transparent);
+        }
+        
+        .header-emblem {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            margin: -30px auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: glow 2s ease-in-out infinite alternate;
+            position: relative;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px rgba(199, 161, 245, 0.3);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(199, 161, 245, 0.6);
+            }
+        }
+        
+        .graduation-cap-icon {
+            width: 35px;
+            height: 35px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23c7a1f5'%3E%3Cpath d='M12 3L1 9l11 6l9-4.91V17h2V9M9 17.5c0-.83.67-1.5 1.5-1.5h3c.83 0 1.5.67 1.5 1.5V20H9v-2.5Z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            color: #8e6be8;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(142, 107, 232, 0.2);
+        }
+        
+        .welcome {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 25px;
+            color: #5d5d5d;
+        }
+        
+        .graduate-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.7rem;
+            background: linear-gradient(45deg, #8e6be8, #b3a0e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            margin: 15px 0;
+            font-weight: 700;
+            animation: shimmer 2s infinite;
+            background-size: 200% 100%;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: -100%;
+            }
+            100% {
+                background-position: 100%;
+            }
+        }
+        
+        .achievement {
+            letter-spacing: 2px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 20px 0;
+            text-transform: uppercase;
+            color: #5d5d5d;
+        }
+        
+        .divider {
+            width: 70%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #c7a1f5, transparent);
+            margin: 25px auto;
+        }
+        
+        .details {
+            margin: 30px 0;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .detail-item {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px 10px;
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .detail-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .detail-icon {
+            margin-bottom: 10px;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            opacity: 0.8;
+        }
+        
+        .detail-date {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238e6be8'%3E%3Cpath d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .detail-time {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238e6be8'%3E%3Cpath d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .detail-location {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238e6be8'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: #6d6d6d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .confirm-btn {
+            display: inline-block;
+            margin: 30px 0;
+            padding: 16px 40px;
+            background: linear-gradient(45deg, #8e6be8, #b3a0e6);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(142, 107, 232, 0.4);
+            overflow: hidden;
+        }
+        
+        .confirm-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+            transition: all 0.6s ease;
+        }
+        
+        .confirm-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(142, 107, 232, 0.5);
+        }
+        
+        .confirm-btn:hover:before {
+            left: 100%;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+            font-size: 1.1rem;
+            color: #5d5d5d;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            margin-top: 20px;
+            color: #8e6be8;
+        }
+        
+        .animated {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .invitation-container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .welcome {
+                font-size: 1rem;
+            }
+            
+            .graduate-name {
+                font-size: 2rem;
+            }
+            
+            .achievement {
+                font-size: 1.2rem;
+                letter-spacing: 1px;
+            }
+            
+            .details {
+                flex-direction: column;
+            }
+            
+            .detail-item {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation-container animated">
+        <div class="floating-elements">
+            <div class="decoration diploma"></div>
+            <div class="decoration tassel"></div>
+            <div class="decoration book"></div>
+            <div class="decoration cap"></div>
+            <!-- Confetti elements will be added by JS -->
+        </div>
+        
+        <div class="inner-content">
+            <div class="header-decoration">
+                <div class="header-line"></div>
+                <div class="header-emblem">
+                    <div class="graduation-cap-icon"></div>
+                </div>
+                <div class="header-line"></div>
+            </div>
+            
+            <h1>Celebración de Logros</h1>
+            
+            <p class="welcome">Tenemos el honor de invitarte a celebrar un momento extraordinario en la vida de</p>
+            
+            <div class="graduate-name">Laura Carolina</div>
+            
+            <p class="achievement">Ingeniera Industrial</p>
+            
+            <p>Un sueño hecho realidad que queremos compartir contigo,<br>pues has sido parte fundamental de este camino.</p>
+            
+            <div class="divider"></div>
+            
+            <div class="details">
+                <div class="detail-item">
+                    <div class="detail-icon detail-date"></div>
+                    <div class="detail-label">Fecha</div>
+                    <div>Sábado 26 de abril</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon detail-time"></div>
+                    <div class="detail-label">Hora</div>
+                    <div>7:00 PM - 12:00 AM</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-icon detail-location"></div>
+                    <div class="detail-label">Lugar</div>
+                    <div>Alameda de Santa Clara 2<br>KR 57A #145-61</div>
+                </div>
+            </div>
+            
+            <a href="https://wa.me/573184017750?text=Hola,%20confirmo%20la%20asistencia%20al%20grado%20de%20Lala,%20all%C3%AD%20estaremos%20:)" class="confirm-btn" id="confirm-btn">
+                Confirmar Asistencia
+            </a>
+            
+            <div class="divider"></div>
+            
+            <div class="footer">
+                <p>Tu presencia hará que este día sea aún más mágico.</p>
+                <p>Ven a brindar con nosotros en esta noche inolvidable.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efecto de hover para dispositivos táctiles
+            const confirmBtn = document.getElementById('confirm-btn');
+            
+            confirmBtn.addEventListener('touchstart', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 8px 25px rgba(142, 107, 232, 0.5)';
+            });
+            
+            confirmBtn.addEventListener('touchend', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+            
+            // Crear confeti animado
+            const floatingElements = document.querySelector('.floating-elements');
+            const colors = ['#8e6be8', '#b3a0e6', '#98d6ea', '#f5d37a', '#ffb5c8'];
+            
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                // Propiedades aleatorias para cada confeti
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const left = Math.random() * 100 + '%';
+                const width = Math.random() * 8 + 5 + 'px';
+                const height = Math.random() * 4 + 8 + 'px';
+                const delay = Math.random() * 5 + 's';
+                const duration = Math.random() * 3 + 5 + 's';
+                
+                confetti.style.backgroundColor = color;
+                confetti.style.left = left;
+                confetti.style.width = width;
+                confetti.style.height = height;
+                confetti.style.animationDelay = delay;
+                confetti.style.animationDuration = duration;
+                
+                floatingElements.appendChild(confetti);
+            }
+            
+            // Animación al hacer scroll
+            const detailItems = document.querySelectorAll('.detail-item');
+            
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            detailItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
